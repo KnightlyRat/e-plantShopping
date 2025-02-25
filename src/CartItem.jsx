@@ -35,7 +35,6 @@ console.log(`Total Cost: $${totalCost.toFixed(2)}`);
   };
 
   // Calculate total cost based on quantity for an item
-  const calculateTotalCost = (item) => {
   cart.forEach((item) => {
   const quantity = item.quantity;
   const cost = parseFloat(item.cost.substring(1)); // Convert cost string to a number
@@ -62,12 +61,6 @@ const item = {
     quantity: 3,
     cost: "$10.00"
 };
-
-const totalCost = calculateTotalCost(item);
-console.log(totalCost); // Output: 30
-
-
-  return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
       <div>
@@ -95,8 +88,6 @@ console.log(totalCost); // Output: 30
         <button className="get-started-button1">Checkout</button>
       </div>
     </div>
-  );
-};
 
 export default CartItem;
 
