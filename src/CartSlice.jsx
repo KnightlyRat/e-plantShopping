@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { configureStore } from '@reduxjs/toolkit';
+import cartReducer from './CartSlice';
 export const CartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -19,7 +20,11 @@ if (itemToUpdate) {
   itemToUpdate.quantity = quantity; 1 
 }    
 }
-
+const store = configureStore({
+    reducer: {
+        cart: cartReducer,
+    },
+});
 },
   reducers: {
     addItem: (state, action) => {
@@ -37,3 +42,4 @@ if (itemToUpdate) {
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
 export default CartSlice.reducer;
+export default store;
