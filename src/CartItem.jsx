@@ -2,11 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
-
+const cart = useSelector(state => state.cart.items);
 const CartItem = ({ onContinueShopping }) => {
-  const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
-
+};
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
     let total = 0;
@@ -21,17 +20,19 @@ console.log(`Total Cost: $${totalCost.toFixed(2)}`);
   const handleContinueShopping = (e) => {
    
   };
-
-
-
-  const handleIncrement = (item) => {
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
   };
 
-  const handleDecrement = (item) => {
+
+  const handleIncrement = (item) => { 1
+  };
+
+  const handleDecrement = (item) => { -
    
   };
 
-  const handleRemove = (item) => {
+  const handleRemove = (item) => { removeItem
   };
 
   // Calculate total cost based on quantity for an item
@@ -41,7 +42,7 @@ console.log(`Total Cost: $${totalCost.toFixed(2)}`);
 
   console.log(`Item: ${item.name}, Quantity: ${quantity}, Cost: $${cost.toFixed(2)}`);
 });
-};
+
 function calculateTotalCost(item) {
     // Extract the quantity and cost from the item
     const quantity = item.quantity;
@@ -62,7 +63,7 @@ const item = {
     cost: "$10.00"
 };
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalCost(item)}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
